@@ -4,7 +4,7 @@ import random
 def exportar_conta(contaInteira):
     try:
         with open('conta.json', 'w', encoding='utf-8') as arquivo:
-            json.dump(contaInteira, arquivo, ensure_ascii=False, indent=4)
+            json.dump(contaInteira, arquivo, indent=4)
 
         print("✔️ Conta salva com sucesso em 'conta.json'")
 

@@ -48,17 +48,20 @@ while True:
                 break
             else:
                 print("Opção inválida!")
-    def encontrar_conta(numero_conta, senha):
+    def encontrar_conta(numero_conta, senha, pin=None):
         pessoaEncontrada = {}
         for pessoa in conta:
             if pessoa['Conta'] == numero_conta and pessoa['Senha'] == senha:
+                if pin is not None and pessoa['Pin'] != pin:
+                    return {}
                 pessoaEncontrada = pessoa
         return pessoaEncontrada
-        
+
     def depositar():
         contaDigitada = int(input("Digite o número da sua conta: "))
         senhaDigitada = int(input("Digite sua senha: "))
-        pessoa = encontrar_conta(contaDigitada, senhaDigitada)
+        pinDigitado = int(input("Digite seu PIN que foi criado"))
+        pessoa = encontrar_conta(contaDigitada, senhaDigitada, pinDigitado)
         if pessoa:
             valor = float(input("Digite o valor que você quer depositar: R$ "))
 
